@@ -1,0 +1,43 @@
+#input{
+		width:202px;
+		height:20px;
+		margin-top:5px;
+		margin-left:5px;
+		position:relative;
+		background:#1abee3;
+		margin:auto;
+		color:#fff;
+		font-size:13px;
+		font-family:GB2312 仿宋;
+}
+.button{
+		width:60px;
+		height:20px;
+		margin-top:5px;
+		margin-left:12px;
+		background:red;
+		position:relative;
+		background:#1abee3;
+		color:#fff;
+		font-size:13px;
+		font-family:GB2312 仿宋;
+		cursor:pointer;
+		border-radius:5px;
+		text-align:center;
+		
+}
+#hidden_form {
+	width:212px;
+	height:50px;
+	position:relative;
+	top:-80px;
+	left:110px;
+}
+#hidden_form form{
+	width:202px;
+	height:46px;
+	background:#6b2327;
+	position:relative;
+	color:#fff;
+	display:none;
+}

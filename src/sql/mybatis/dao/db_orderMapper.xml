@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sql.mybatis.dao.Db_orderMap">
+	
+	<cache eviction="FIFO" flushInterval="10000" >
+	</cache>
+	
+	<select id="get_addrs" parameterType="String" resultType="HashMap"
+		useCache="true" timeout="10000">
+		select address,count(address) as
+		amount from
+		db_order where goodsname=#{goodsname} group by address ORDER BY amount DESC
+		limit 7
+	</select>
+	<select id="get_amount" parameterType="String" resultType="HashMap">
+		select count(goodsname) as amount from db_order where
+		goodsname=#{goodsname}
+	</select>
+	<insert id="insertorder" parameterType="Db_order" 
+		 flushCache="true" timeout="2000" ><!-- keyProperty="id"useGeneratedKeys="true" -->
+		<selectKey keyProperty="id" order="BEFORE" resultType="int" >
+			select MAX(id)+1 as id from db_order
+		</selectKey>
+		
+		insert into db_order values
+		(#{id},#{username},#{Ac_id},#{Ac_name},#{goodsname},#{goodsprice},#{starttime},#{address},#{effect})
+	</insert>
+
+	<select id="getallamount" parameterType="HashMap" resultType="HashMap">
+		select COUNT(address) as amount from db_order where goodsname=#{goodsname} and address=#{address} and effect="false" GROUP BY address 
+	</select>
+	
+	<update id="updateorder" parameterType="HashMap" >
+		update db_order set effect='true' where goodsname=#{goodsname} and address=#{address}
+	</update>
+	
+	<select id="getsales" parameterType="HashMap" resultType="HashMap"  >
+		SELECT
+		count(starttime) as amount,starttime from db_order where
+		goodsname=#{goodsname}
+		GROUP BY starttime
+		<if test="amount>7">
+			limit #{amount}
+		</if>
+	</select>
+	<select id="getchangeprice" parameterType="HashMap" resultType="HashMap" >
+		SELECT goodsprice as price,starttime from db_order where
+		goodsname=#{goodsname} GROUP BY goodsprice ORDER BY starttime
+		<if test="amount>7">
+			limit #{amount}
+		</if>
+	</select>
+
+	<select id="getinterest" parameterType="HashMap" resultType="HashMap"
+		timeout="3000" useCache="true"  >
+		select count(userinterest) as amount,userinterest from
+		db_userinfor where username in(select distinct username from db_order
+		where goodsname=#{goodsname}) group by userinterest order by amount desc
+		
+	</select>
+
+	
+</mapper>

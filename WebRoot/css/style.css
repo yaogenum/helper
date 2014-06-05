@@ -1,0 +1,283 @@
+p{
+	padding:0;
+	margin:0;
+	text-align:center;
+}
+#timu{
+	text-align:center;
+	width:297px;
+}
+
+#timus{
+	text-align:center;
+	width:297px;
+}
+
+
+input{outline:none;}
+textarea{
+resize:none;
+}
+input{outline:none;}
+button{
+cursor:pointer;
+}
+#show_all{ 
+	width: 480px;
+	position:absolute;
+	top:160px;
+	left:400px;
+	height: 450px;
+	border:2px solid #4bbfff;
+	border-radius:5px;
+	-moz-box-shadow: 0px 10px 5px #ececfb; 
+	box-shadow: 0px 0px 50px #ececfb;
+	background:#f4f4f4;
+	text-align:center;
+	display:none;
+	z-index:1;
+}
+#panelall{
+float:left;
+}
+
+#show_ifm{ 
+	width:298px;
+	height:450px;
+	text-align:center;
+	overflow:hidden;
+	margin-left:480px;
+	display:none;
+	background:url(../images/bag.gif);
+	border-left:2px solid  #4bbfff;
+	position:absolute;
+
+}
+#panel1,#panel2,#panel3,#panel4{
+	width: 480px;
+	height:360px;	
+	display:none;
+	float:left;
+	border-bottom:2px solid #4bbfff;
+}
+.panel1
+{
+background:#e3f4f8;
+}
+/*<!--底端-->*/
+#xxbtn{
+	width:100%px;
+	display:block;
+	color:#999999;
+	line-height:23px;
+	color:red;
+	cursor:pointer;
+	font-size:15px;
+	margin-top:13px;
+	margin-left:20px;
+}
+#close{
+	width:37px;
+	height:14px;
+	position:absolute;
+	top:5px;
+	left:435px;
+	cursor:pointer;
+}
+/*第一个页面*/
+#xtop_1{
+	width:430px;
+	height:320px;
+	margin:auto;
+	overflow:hidden;
+	margin-top:0px;
+}
+#top_1left{
+	width:215px;
+	height:310px;
+	background:#313140;
+	float:left;
+	position:relative;
+	top:27px;
+}
+#top_1right{
+	width:215px;
+	height:300px;
+	background:#313140;
+	float:right;
+	position:relative;
+	right:0px;
+	top:27px;
+}
+#play{
+	position:absolute;
+	top:153px;
+	left:192px;
+	cursor:pointer;
+}
+#xtop{
+	width:480px;
+	height:30px;
+	background:#06c6f4;
+	color:white;
+	font-size:16px;
+	font-family:verdana,"Times New Roman","宋体",Times,serif;
+	font-weight:bold;
+	line-height:28px;
+}
+#ifm_top{
+	width:298px;
+	height:30px;
+	background:#06c6f4;
+	text-align:center;
+	color:white;
+	font-size:14px;
+	font-family:verdana,"Times New Roman","宋体",Times,serif;
+	font-weight:bold;
+	line-height:30px;
+}
+#xleft{
+	width:150px;
+	float:left;
+	position:absolute;
+	background:#fff;
+}
+#xright{
+	width:151px;
+	height:auto;
+	left:330px;
+	position:absolute;
+	background:#fff;
+}
+#contenthistory{
+	width:260px;
+	height:380px;
+}
+#xfind{
+	width:145px;
+	height:20px;
+	float:left;
+	margin-top:5px;
+	border:3px solid #a9e8f1;
+	border-radius:25px;
+}
+#xfind input{
+	width:115px;
+	height:16px;
+	position:relative;
+	top:2px;
+	border:none;
+	outline:none;
+}
+#nav_left{
+	width:140px;
+	height:155px;
+	float:left;
+	font-size:12px;
+	margin-top:5px;
+	display:none;
+	z-index:2;
+	background:#fff;
+	position:relative;
+	overflow:hidden;
+}
+#nav_left p{
+	margin-left:-60px;
+	margin-top:0px;
+	padding:0;
+}
+#sn_bg{
+	width:150px;
+	height:180px;
+	float:right;
+	position:relative;
+	top:30px;
+	background:#fff url(../image/sn_bg.jpg) no-repeat 0 35px;
+}
+#btn{
+	width:60px;
+	height:100px;
+	float:right;
+	margin-right:70px;
+}
+#btn button{
+	width:55px;
+	height:20px;
+	border-radius:5px;
+	margin-left:10px;
+	margin-top:15px;
+	background:#097dba;
+	color:#fff;
+}
+#face1{
+	width:90px;
+	overflow:hidden;
+	border:none;
+	float:right;
+	margin-right:60px;
+	text-align:center;
+	background:#c2dcf5;
+	margin-top:4px;
+}
+#face1 option{
+	background:#c2dcf5;
+}
+#tex1{
+	width:325px;
+	height:210px;
+	border:none;
+	
+	font-size:14px;
+}
+#bg{
+	width:480px;
+	height:24px;
+	background:#c2dcf5;
+	margin-top:212px;
+}
+#bg button{
+	height:24px;
+	width:80px;
+	border:none;
+	margin-left:220px;
+	background:#c2dcf5;
+}
+#tex2{
+	width:345px;
+	height:90px;
+	border:none;
+	font-size:14px;
+	overflow:hidden;
+	float:left;
+}
+#show_bottum
+{
+	width:480px;
+	position:relative;
+}
+#show_Btn{
+	margin-top:0;
+}
+#ul_li li{
+	float:left;
+	width:96px;
+	height:70px;
+	margin-left:16px;
+	margin-top:6px;
+	cursor:pointer;
+	position:relative;
+	line-height:40px;
+	text-align:center;
+}
+#ul_li li img{
+	padding-left:20px;
+}
+.bg{
+	width:92px;
+	height:42px;
+	overflow:hidden;
+	border:none;
+	position:absolute;
+	top:-78;
+	left:0;
+}

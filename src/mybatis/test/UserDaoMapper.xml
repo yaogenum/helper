@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.test.Db_userinforDao">
+
+
+
+	<insert id="insert" parameterType="mybatis.test.Db_userinfor">
+		insert into db_userinfor
+		values(#{username},#{userpass},#{userinterest},#{useraddress},#{userphone},#{usergrades})
+	</insert>
+
+
+	<sql id="changeselect" >select * from db_userinfor
+		
+		<trim prefix="where" prefixOverrides="and|or|shell"  >
+		<choose>
+			<when test="name!=null">
+				username=#{name}
+			</when>
+		</choose>
+			and  userpass=#{pass}
+		</trim>
+	
+	</sql>
+	
+	<select id="selectall" resultType="mybatis.test.Db_userinfor"
+		parameterType="HashMap"  >
+		<include refid="changeselect" />
+	</select>
+
+
+	<select id="selectlist" resultType="HashMap">
+		select username,userpass from
+		db_userinfor limit 1
+    </select>
+
+
+
+	<select id="selectmap" resultMap="UserMap">
+		select username as
+		usernames,userpass as userpasss from db_userinfor limit 1
+	</select>
+
+
+	<resultMap type="mybatis.test.Db_userinfor" id="UserMap">
+		<id property="username" column="usernames" />
+		<result property="userpass" column="userpasss" />
+
+	</resultMap>
+
+
+
+	<select id="selecttwo" resultMap="twomap" >
+		select
+		db_userinfor.username as username,db_userinfor.userpass as
+		userpass,db_order.id as id,db_order.Ac_id as orderid,db_order.username
+		as usernames from
+		db_userinfor,db_order
+		where db_userinfor.username=db_order.username 
+		
+	</select>
+
+	<resultMap type="mybatis.test.UnionQuery" id="twomap">
+		<id property="username" column="username" />
+		<result property="userpass" column="userpass" />
+		<!-- <collection property="order" ofType="mybatis.test.Db_order" resultMap="returnmap"> 
+			</collection> -->
+		<association property="order" resultMap="returnmap" >
+		</association>
+	</resultMap>
+
+	<resultMap type="mybatis.test.Db_order" id="returnmap">
+		<id property="id" column="id" />
+		<result property="Ac_id" column="orderid" />
+		<result property="username" column="usernames" />
+	</resultMap>
+
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true"  /> 
+
+	<!-- 测试用例 -->
+	<delete id="deleteobject" parameterType="String" timeout="1400">
+		delete  from db_userinfor where username=#{username}  
+	</delete>
+	
+	
+	
+</mapper>
+
+
+
+
+<!--<association property="order" column="username" javaType="mybatis.test.Db_order" 
+	resultMap="returnmap"></association> -->
+
+<!--<select id="selectone" resultMap="" parameterType="String"> select username,userpass 
+	from db_userinfor where username=#{usernames} limit 1 </select> --><!-- <collection property="order" ofType="mybatis.test.Db_order" column="username" 
+	resultMap="returnmap"> </collection> -->

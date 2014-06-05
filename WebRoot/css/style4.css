@@ -1,0 +1,23 @@
+#panel4_top{
+	width:380px;
+	height:320px;
+	float:left;
+	margin:5px;
+	background:#06c6f4;
+}
+#panel4_right{
+	width:70px;
+	height:320px;
+	float:left;
+	margin-top:3px;
+	margin-left:15px;
+	border:1px solid #06c6f4;
+	border-radius:5px
+}
+#panel4_right button{
+	width:60px;
+	height:90px;
+	margin-top:13px;
+	margin-left:0px;
+	background:#06c6f4;
+}

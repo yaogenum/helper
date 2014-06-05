@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sql.mybatis.dao.Db_acMap">
+	<select id="get_ac" parameterType="int" resultType="Db_ac" useCache="true" >
+		select * from db_ac where Ac_goodsid=#{Ac_goodsid}
+	</select>
+
+	<select id="get_infors" parameterType="HashMap" resultMap="acmap" useCache="true" timeout="2000">
+		select * from db_ac  join db_goodsinfor on Ac_id=#{Ac_id} and goodsid=#{goodsid} 
+	</select>
+	
+	<resultMap id="acmap" type="Db_ac">
+		<id property="Ac_id" column="Ac_id"/>
+		<result property="Ac_name" column="Ac_name"/>
+		<result property="Ac_cheapcode" column="Ac_cheapcode" />
+		<result property="Ac_amount" column="Ac_amount" />
+		<association property="infor" column="Ac_goodsid" resultMap="goodsmap" javaType="Db_goodsinfor">
+		</association>
+	</resultMap>
+	
+	<resultMap id="goodsmap" type="Db_goodsinfor">
+		<result property="goodsid" column="goodsid" />
+		<result property="goodsname" column="goodsname" />
+		<result property="goods_starttime" column="goods_starttime" />
+	</resultMap>
+
+</mapper>

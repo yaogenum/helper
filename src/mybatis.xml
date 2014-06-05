@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="sql.mybatis.beans.Db_userinfor" alias="Db_userinfor"/>
+		<typeAlias type="sql.mybatis.beans.Db_goodsinfor" alias="Db_goodsinfor"/>
+		<typeAlias type="sql.mybatis.beans.Db_ac" alias="Db_ac" />
+		<typeAlias type="sql.mybatis.beans.Db_order" alias="Db_order" />
+	</typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://localhost:3306/helper?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull" />
+                <property name="username" value="root" />
+                <property name="password" value="root" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+    	<mapper resource="mybatis/test/UserDaoMapper.xml" />
+    	<mapper resource="sql/mybatis/dao/db_userinforDAOMapper.xml" />
+    	<mapper resource="sql/mybatis/dao/db_goodsinforMapper.xml" />
+    	<mapper resource="sql/mybatis/dao/db_acMapper.xml" />
+    	<mapper resource="sql/mybatis/dao/db_orderMapper.xml" />
+    </mappers>
+    
+</configuration>
